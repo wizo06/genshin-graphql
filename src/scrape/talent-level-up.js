@@ -22,7 +22,7 @@ const admin = require('firebase-admin');
 
     if (rarity !== 4) return;
 
-    const data= {
+    const data = {
       name: name.replace('Philosophies of ', ''),
       portrait: `https://genshin.honeyhunterworld.com${portrait.replace('_35', '')}`
     }
