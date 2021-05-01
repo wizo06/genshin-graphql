@@ -4,9 +4,9 @@
 
 **`characters`**
 
-element | name   | portrait | rarity | talentBook       | talentWeekly        | weaponType
----     | ---    | ---      | ---    | ---              | ---                 | ---
-string  | string | string   | number | ref(talentBooks) | ref(talentWeeklies) | string
+element | jewel       | name   | portrait | rarity | talentBook       | talentWeekly        | weaponType
+---     | ---         | ---    | ---      | ---    | ---              | ---                 | ---
+string  | ref(jewels) | string | string   | number | ref(talentBooks) | ref(talentWeeklies) | string
 
 **`talentBooks`**
 
@@ -21,6 +21,12 @@ name   | portrait
 string | string
 
 **`jewels`**
+
+name   | portrait
+---    | ---
+string | string
+
+**`stones`**
 
 name   | portrait
 ---    | ---
