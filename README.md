@@ -9,6 +9,7 @@ key | datatype
 commonMaterial | ref(commonMaterials)
 element | string
 jewel | ref(jewels)
+localMaterial | ref(localMaterials)
 name | string
 portrait | string
 stone | ref(stones)
@@ -46,6 +47,13 @@ name | string
 portrait | string
 
 **`commonMaterials`**
+
+key | datatype
+--- | ---
+name | string
+portrait | string
+
+**`localMaterials`**
 
 key | datatype
 --- | ---
