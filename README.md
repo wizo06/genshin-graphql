@@ -4,30 +4,50 @@
 
 **`characters`**
 
-element | jewel       | name   | portrait | rarity | talentBook       | talentWeekly        | weaponType
----     | ---         | ---    | ---      | ---    | ---              | ---                 | ---
-string  | ref(jewels) | string | string   | number | ref(talentBooks) | ref(talentWeeklies) | string
+key | datatype
+--- | ---
+commonMaterial | ref(commonMaterials)
+element | string
+jewel | ref(jewels)
+name | string
+portrait | string
+stone | ref(stones)
+rarity | number
+talentBook | ref(talentBooks)
+talentWeekly | ref(talentWeeklies)
+weaponType | string
 
 **`talentBooks`**
 
-name   | portrait
----    | ---
-string | string
+key | datatype
+--- | ---
+name | string
+portrait | string
 
 **`talentWeeklies`**
 
-name   | portrait
----    | ---
-string | string
+key | datatype
+--- | ---
+name | string
+portrait | string
 
 **`jewels`**
 
-name   | portrait
----    | ---
-string | string
+key | datatype
+--- | ---
+name | string
+portrait | string
 
 **`stones`**
 
-name   | portrait
----    | ---
-string | string
+key | datatype
+--- | ---
+name | string
+portrait | string
+
+**`commonMaterials`**
+
+key | datatype
+--- | ---
+name | string
+portrait | string
