@@ -4,8 +4,10 @@
   "author": "wizo06",
   "license": "ISC",
   "dependencies": {
+    "apollo-server": "^2.24.0",
     "cheerio": "^1.0.0-rc.6",
     "firebase-admin": "^9.7.0",
+    "graphql": "^15.5.0",
     "node-fetch": "^2.6.1"
   }
 }
