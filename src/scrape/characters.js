@@ -1,14 +1,7 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
-const admin = require('firebase-admin');
 
 (async () => {
-  const serviceAccount = require('../../config/serviceAccountKey.json');
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-  });
-  const db = admin.firestore();
-
   const response = await fetch('https://genshin.honeyhunterworld.com/db/char/characters/');
   // const response = await fetch('https://genshin.honeyhunterworld.com/db/char/unreleased-and-upcoming-characters/');
   const body = await response.text();
@@ -34,13 +27,6 @@ const admin = require('firebase-admin');
 
     if (name.includes('Traveler')) return;
 
-    const data = {
-      element: element.split('/').pop().split('_')[0],
-      portrait: `https://genshin.honeyhunterworld.com${portrait.replace('_135', '')}`,
-      rarity,
-      name,
-      weaponType: weaponType.split('/').pop().split('_')[0],
-    }
-    db.collection('characters').add(data)
+    // Store to db
   })
 })();

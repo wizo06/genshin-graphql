@@ -1,14 +1,7 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
-const admin = require('firebase-admin');
 
 (async () => {
-  const serviceAccount = require('../../config/serviceAccountKey.json');
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-  });
-  const db = admin.firestore();
-
   const response = await fetch('https://genshin.honeyhunterworld.com/db/item/character-ascension-material-jewel/');
   const body = await response.text();
 
@@ -22,10 +15,6 @@ const admin = require('firebase-admin');
 
     if (rarity !== 5) return;
 
-    const data = {
-      name: name.replace(' Gemstone', ''),
-      portrait: `https://genshin.honeyhunterworld.com${portrait.replace('_35', '')}`
-    }
-    db.collection('jewels').add(data)
+    // Store to db
   })
 })();
