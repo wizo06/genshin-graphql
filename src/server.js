@@ -18,7 +18,7 @@ const { resolvers: stoneResolvers } = require('./graphql/characters.js');
 const { resolvers: talentBookResolvers } = require('./graphql/characters.js');
 const { resolvers: talentWeeklyResolvers } = require('./graphql/characters.js');
 
-// Define base typeDef and resolver so they can be extended
+// Define base typeDef and basee resolver so they can be extended
 const typeDefs = gql`
   type Query {
     _empty: String

@@ -12,5 +12,5 @@ To get a local server running:
 git clone https://github.com/wizo06/honey-impact-graphql.git
 cd honey-impact-graphql
 npm i
-npm dev
+npm run dev
 ```
