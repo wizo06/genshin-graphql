@@ -7,12 +7,10 @@ const typeDefs = gql`
   }
 
   type Jewel {
-    "Uniq ue ID of the jewel"
-    id: String!
     "Name of the jewel"
     name: String
-    "URL of the portrait of the jewel"
-    portrait: String
+    "The url for the jewel image on the Honey Impact website"
+    imgUrl: String
   }
 `;
 

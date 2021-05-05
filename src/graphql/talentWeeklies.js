@@ -7,12 +7,10 @@ const typeDefs = gql`
   }
 
   type TalentWeekly {
-    "Uniq ue ID of the talentWeekly"
-    id: String!
     "Name of the talentWeekly"
     name: String
-    "URL of the portrait of the talentWeekly"
-    portrait: String
+    "The url for the talentWeekly image on the Honey Impact website"
+    imgUrl: String
   }
 `;
 

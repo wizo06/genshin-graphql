@@ -7,12 +7,10 @@ const typeDefs = gql`
   }
 
   type Character {
-    "Unique ID of the character"
-    id: String!
-    "Name of the character"
+    "The name of the character"
     name: String
-    "URL of portrait of the character"
-    portrait: String
+    "The url for the character image on the Honey Impact website"
+    imgUrl: String
     "Rarity of the character"
     rarity: Int
     "Element of the character"

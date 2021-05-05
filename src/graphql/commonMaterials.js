@@ -7,12 +7,10 @@ const typeDefs = gql`
   }
 
   type CommonMaterial {
-    "Uniq ue ID of the commonMaterial"
-    id: String!
     "Name of the commonMaterial"
     name: String
-    "URL of the portrait of the commonMaterial"
-    portrait: String
+    "The url for the commonMaterial image on the Honey Impact website"
+    imgUrl: String
   }
 `;
 

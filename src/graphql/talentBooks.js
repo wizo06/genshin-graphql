@@ -7,12 +7,10 @@ const typeDefs = gql`
   }
 
   type TalentBook {
-    "Uniq ue ID of the talentBook"
-    id: String!
     "Name of the talentBook"
     name: String
-    "URL of the portrait of the talentBook"
-    portrait: String
+    "The url for the talentBook image on the Honey Impact website"
+    imgUrl: String
   }
 `;
 

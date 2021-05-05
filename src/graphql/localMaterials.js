@@ -7,12 +7,10 @@ const typeDefs = gql`
   }
 
   type LocalMaterial {
-    "Uniq ue ID of the localMaterial"
-    id: String!
     "Name of the localMaterial"
     name: String
-    "URL of the portrait of the localMaterial"
-    portrait: String
+    "The url for the localMaterial image on the Honey Impact website"
+    imgUrl: String
   }
 `;
 

@@ -7,12 +7,10 @@ const typeDefs = gql`
   }
 
   type Stone {
-    "Uniq ue ID of the stone"
-    id: String!
     "Name of the stone"
     name: String
-    "URL of the portrait of the stone"
-    portrait: String
+    "The url for the stone image on the Honey Impact website"
+    imgUrl: String
   }
 `;
 
