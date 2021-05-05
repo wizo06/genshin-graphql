@@ -1,61 +1,16 @@
 # honey-impact-graphql
 
-## Collections
+Unofficial GraphQL API for [https://genshin.honeyhunterworld.com/](https://genshin.honeyhunterworld.com/)
 
-**`characters`**
+Still a WIP
 
-key | datatype
---- | ---
-commonMaterial | ref(commonMaterials)
-element | string
-jewel | ref(jewels)
-localMaterial | ref(localMaterials)
-name | string
-portrait | string
-stone | ref(stones)
-rarity | number
-talentBook | ref(talentBooks)
-talentWeekly | ref(talentWeeklies)
-weaponType | string
+## Contributors
 
-**`talentBooks`**
+To get a local server running:
 
-key | datatype
---- | ---
-name | string
-portrait | string
-
-**`talentWeeklies`**
-
-key | datatype
---- | ---
-name | string
-portrait | string
-
-**`jewels`**
-
-key | datatype
---- | ---
-name | string
-portrait | string
-
-**`stones`**
-
-key | datatype
---- | ---
-name | string
-portrait | string
-
-**`commonMaterials`**
-
-key | datatype
---- | ---
-name | string
-portrait | string
-
-**`localMaterials`**
-
-key | datatype
---- | ---
-name | string
-portrait | string
+```
+git clone https://github.com/wizo06/honey-impact-graphql.git
+cd honey-impact-graphql
+npm i
+npm dev
+```
