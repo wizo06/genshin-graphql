@@ -1,69 +1,56 @@
 const { ApolloServer, gql } = require('apollo-server');
-const admin = require('firebase-admin');
-const { readFileSync } = require('fs');
-const path = require('path');
 
-const serviceAccount = require(path.join(__dirname, '../config/serviceAccountKey.json'));
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-const db = admin.firestore();
+// Import typeDefs
+const { typeDefs: characterQueries } = require('./graphql/characters.js');
+const { typeDefs: commonMaterialQueries } = require('./graphql/commonMaterials.js');
+const { typeDefs: jewelQueries } = require('./graphql/jewels.js');
+const { typeDefs: localMaterialQueries } = require('./graphql/localMaterials.js');
+const { typeDefs: stoneQueries } = require('./graphql/stones.js');
+const { typeDefs: talentBookQueries } = require('./graphql/talentBooks.js');
+const { typeDefs: talentWeeklyQueries } = require('./graphql/talentWeeklies.js');
 
-// The GraphQL schema
-const typeDefs = readFileSync(path.join(__dirname, 'schema.graphql')).toString('utf-8');
+// Import resolvers
+const { resolvers: characterResolvers } = require('./graphql/characters.js');
+const { resolvers: commonMaterialResolvers } = require('./graphql/characters.js');
+const { resolvers: jewelResolvers } = require('./graphql/characters.js');
+const { resolvers: localMaterialResolvers } = require('./graphql/characters.js');
+const { resolvers: stoneResolvers } = require('./graphql/characters.js');
+const { resolvers: talentBookResolvers } = require('./graphql/characters.js');
+const { resolvers: talentWeeklyResolvers } = require('./graphql/characters.js');
 
-// A map of functions which return data for the schema.
-const resolvers = {
-  Query: {
-    characters: async () => {
-      const snapshot = await db.collection('characters').get();
-      return snapshot.docs.map(async doc => {
-        const newDoc = doc.data();
-        newDoc.id = doc.id;
-        
-        const talentBookSnapshot = await doc.data().talentBook.get();
-        newDoc.talentBook = talentBookSnapshot.data();
-        newDoc.talentBook.id = talentBookSnapshot.id;
+// Define base typeDef and resolver so they can be extended
+const typeDefs = gql`
+  type Query {
+    _empty: String
+  }
+`;
+const resolvers = {};
 
-        const stoneSnapshot = await doc.data().stone.get();
-        newDoc.stone = stoneSnapshot.data();
-        newDoc.stone.id = stoneSnapshot.id;
-
-        const jewelSnapshot = await doc.data().jewel.get();
-        newDoc.jewel = jewelSnapshot.data();
-        newDoc.jewel.id = jewelSnapshot.id;
-
-        const localMaterialSnapshot = await doc.data().localMaterial.get();
-        newDoc.localMaterial = localMaterialSnapshot.data();
-        newDoc.localMaterial.id = localMaterialSnapshot.id;
-
-        const commonMaterialSnapshot = await doc.data().commonMaterial.get();
-        newDoc.commonMaterial = commonMaterialSnapshot.data();
-        newDoc.commonMaterial.id = commonMaterialSnapshot.id;
-
-        const talentWeeklySnapshot = await doc.data().talentWeekly.get();
-        newDoc.talentWeekly = talentWeeklySnapshot.data();
-        newDoc.talentWeekly.id = talentWeeklySnapshot.id;
-
-        return newDoc;
-      });
-    },
-    talentBooks: async () => {
-      const snapshot = await db.collection('talentBooks').get()
-      return snapshot.docs.map(doc => {
-        const newDoc = doc.data();
-        newDoc.id = doc.id;
-        return newDoc;
-      });
-    },
-  },
-};
-
+// Create an Apollo server with the imported typedefs and resolvers
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  typeDefs: [
+    typeDefs, 
+    characterQueries, 
+    commonMaterialQueries,
+    jewelQueries,
+    localMaterialQueries,
+    stoneQueries,
+    talentBookQueries,
+    talentWeeklyQueries
+  ],
+  resolvers: [
+    resolvers,
+    characterResolvers, 
+    commonMaterialResolvers,
+    jewelResolvers,
+    localMaterialResolvers,
+    stoneResolvers,
+    talentBookResolvers,
+    talentWeeklyResolvers
+  ],
 });
 
+// Listen on port 4000 (default)
 server.listen().then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
