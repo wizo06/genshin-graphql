@@ -1,3 +1,4 @@
+const { CONFIG } = require('./helper/loadConfigFile.js');
 const { ApolloServer, gql } = require('apollo-server');
 
 // Import typeDefs
@@ -50,7 +51,6 @@ const server = new ApolloServer({
   ],
 });
 
-// Listen on port 4000 (default)
-server.listen().then(({ url }) => {
+server.listen({ port: CONFIG.apollo.port }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
