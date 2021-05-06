@@ -2,7 +2,7 @@
 
 Unofficial GraphQL API for [https://genshin.honeyhunterworld.com/](https://genshin.honeyhunterworld.com/)
 
-Still a WIP
+Endpoint URL = `https://genshin.sourcies.dev/graphql`
 
 ## Contributors
 
