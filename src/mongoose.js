@@ -1,4 +1,7 @@
-const { CONFIG } = require('./helper/loadConfigFile.js');
+const { join } = require('path');
+const root = process.cwd();
+
+const { CONFIG } = require(join(root, 'src/helpers/loadConfigFile.js'));
 const mongoose = require('mongoose');
 const logger = require('logger');
 
