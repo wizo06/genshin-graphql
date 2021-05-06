@@ -1,12 +1,26 @@
 const { join } = require('path');
 const root = process.cwd();
 
-const { CONFIG } = require(join(root, 'src/helpers/loadConfigFile.js'));
+const { CONFIG: { mongo } } = require(join(root, 'src/helpers/loadConfigFile.js'));
 const mongoose = require('mongoose');
 const logger = require('logger');
 
-const CONNECTION_URI = `mongodb://${CONFIG.mongo.hostname}:${CONFIG.mongo.port}/${CONFIG.mongo.db_name}`;
-mongoose.connect(CONNECTION_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
+let URI;
+if (mongo.protocol === 'mongodb+srv') {
+  // MongoDB Atlas
+  URI = `${mongo.protocol}://${mongo.username}:${mongo.password}@${mongo.hostname}/${mongo.db_name}`
+}
+else if (mongo.protocol === 'mongodb') {
+  // Local MongoDB
+  URI = `${mongo.protocol}://${mongo.hostname}:${mongo.port}/${mongo.db_name}`
+}
+else {
+  logger.error('Invalid protocol');
+  logger.error('Use either "mongodb+srv" or "mongodb"');
+  process.exit();
+}
+
+mongoose.connect(URI,{ useNewUrlParser: true, useUnifiedTopology: true })
 .catch(err => {
   logger.error('Error on initial connection');
   console.log(err);
