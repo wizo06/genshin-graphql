@@ -10,6 +10,7 @@
   "dependencies": {
     "apollo-server": "^2.24.0",
     "graphql": "^15.5.0",
+    "logger": "github:wizo06/logger",
     "mongoose": "^5.12.7",
     "toml-require": "^1.2.0"
   },
