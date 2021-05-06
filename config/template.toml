@@ -3,5 +3,5 @@ port = "4000"
 
 [mongo]
 hostname = "127.0.0.1"
-port = ":27017"
+port = "27017"
 db_name = "honey-impact-graphql"

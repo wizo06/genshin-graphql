@@ -1,4 +1,5 @@
 const { gql } = require('apollo-server');
+const mongoose = require('mongoose');
 
 const typeDefs = gql`
   extend type Query {
@@ -14,6 +15,12 @@ const typeDefs = gql`
   }
 `;
 
+const commonMaterialSchema = new mongoose.Schema({
+  name: String,
+  imgUrl: String,
+});
+const CommonMaterialModel = mongoose.model('CommonMaterial', commonMaterialSchema, 'commonMaterials');
+
 const resolvers = {
   Query: {
     commonMaterialAll: async () => {
@@ -25,4 +32,4 @@ const resolvers = {
   },
 }
 
-module.exports = { typeDefs, resolvers }
+module.exports = { typeDefs, resolvers, CommonMaterialModel }

@@ -1,5 +1,7 @@
-const { CONFIG } = require('./helper/loadConfigFile.js');
 const { ApolloServer, gql } = require('apollo-server');
+const { CONFIG } = require('./helper/loadConfigFile.js');
+const { connectToMongoDB } = require('./mongodb.js');
+const logger = require('logger');
 
 // Import typeDefs
 const { typeDefs: characterQueries } = require('./graphql/characters.js');
@@ -51,6 +53,9 @@ const server = new ApolloServer({
   ],
 });
 
-server.listen({ port: CONFIG.apollo.port }).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
-});
+(async () => {
+  await connectToMongoDB();
+  server.listen({ port: CONFIG.apollo.port }).then(({ url }) => {
+    logger.success(`🚀 ApolloServer ready at ${url}`);
+  });
+})();

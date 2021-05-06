@@ -1,4 +1,11 @@
 const { gql } = require('apollo-server');
+const mongoose = require('mongoose');
+const { CommonMaterialModel } = require('./commonMaterials.js');
+const { JewelModel } = require('./jewels.js');
+const { LocalMaterialModel } = require('./localMaterials.js');
+const { StoneModel } = require('./stones.js');
+const { TalentBookModel } = require('./talentBooks.js');
+const { TalentWeeklyModel } = require('./talentWeeklies.js');
 
 const typeDefs = gql`
   extend type Query {
@@ -17,35 +24,67 @@ const typeDefs = gql`
     element: String
     "Weapon type that the character uses"
     weaponType: String
-    "Talent book that the character uses"
-    talentBook: TalentBook
-    "Elemental stone that the character uses"
-    stone: Stone
+    "Common material that the character uses"
+    commonMaterial: CommonMaterial
     "Jewel that the character uses"
     jewel: Jewel
     "Local material that the character uses"
     localMaterial: LocalMaterial
-    "Common material that the character uses"
-    commonMaterial: CommonMaterial
+    "Elemental stone that the character uses"
+    stone: Stone
+    "Talent book that the character uses"
+    talentBook: TalentBook
     "Talent weekly that the character uses"
     talentWeekly: TalentWeekly
   }
 `;
 
+const characterSchema = new mongoose.Schema({
+  name: String,
+  element: String,
+  imgUrl: String,
+  rarity: Number,
+  weaponType: String,
+  commonMaterialId: String,
+  jewelId: String,
+  localMaterialId: String,
+  stoneId: String,
+  talentBookId: String,
+  talentWeeklyId: String,
+});
+const CharacterModel = mongoose.model('Character', characterSchema, 'characters');
+
 const resolvers = {
   Query: {
-    characterAll: async () => {
-      return [{id:  '123', name: 'charname'}]
+    characterAll: async () => {      
+      const characters = await CharacterModel.find({});
+      return characters;
     },
     characterByName: async (_, args) => {
-      return {id: '456', name: args.name }
+      const character = await CharacterModel.findOne({ name: args.name });
+      return character;
     }
   },
   Character: {
-    talentBook(parent) {
-      return {id: 'asdf', name: 'namee?'}
-    }
+    async commonMaterial(parent) {
+      return await CommonMaterialModel.findOne({ _id: parent.commonMaterialId });
+    },
+    async jewel(parent) {
+      return await JewelModel.findOne({ _id: parent.jewelId });
+    },
+    async localMaterial(parent) {
+      return await LocalMaterialModel.findOne({ _id: parent.localMaterialId });
+    },
+    async stone(parent) {
+      return await StoneModel.findOne({ _id: parent.stoneId });
+    },
+    async talentBook(parent) {
+      return await TalentBookModel.findOne({ _id: parent.talentBookId });
+    },
+    async talentWeekly(parent) {
+      return await TalentWeeklyModel.findOne({ _id: parent.talentWeeklyId });
+    },
   }
 }
 
-module.exports = { typeDefs, resolvers }
+module.exports = { typeDefs, resolvers, CharacterModel }

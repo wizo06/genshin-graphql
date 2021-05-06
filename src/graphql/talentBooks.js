@@ -1,4 +1,5 @@
 const { gql } = require('apollo-server');
+const mongoose = require('mongoose');
 
 const typeDefs = gql`
   extend type Query {
@@ -14,6 +15,12 @@ const typeDefs = gql`
   }
 `;
 
+const talentBookSchema = new mongoose.Schema({
+  name: String,
+  imgUrl: String,
+});
+const TalentBookModel = mongoose.model('TalentBook', talentBookSchema, 'talentBooks');
+
 const resolvers = {
   Query: {
     talentBookAll: async () => {
@@ -25,4 +32,4 @@ const resolvers = {
   },
 }
 
-module.exports = { typeDefs, resolvers }
+module.exports = { typeDefs, resolvers, TalentBookModel }
