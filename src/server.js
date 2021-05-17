@@ -21,6 +21,8 @@ const { stonesResolvers } = require('src/graphql/stones/resolvers.js')
 const { talentBooksResolvers } = require('src/graphql/talentBooks/resolvers.js')
 const { talentWeekliesResolvers } = require('src/graphql/talentWeeklies/resolvers.js')
 
+const { enums } = require('src/graphql/enums.js')
+
 // Define base typeDef and basee resolver so they can be extended
 const typeDefs = gql`type Query { _empty: String }`
 
@@ -34,7 +36,8 @@ const server = new ApolloServer({
     localMaterialsTypeDefs,
     stonesTypeDefs,
     talentBooksTypeDefs,
-    talentWeekliesTypeDefs
+    talentWeekliesTypeDefs,
+    enums
   ],
   resolvers: [
     charactersResolvers, 
