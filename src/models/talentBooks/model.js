@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
   name: String,
   imgUrl: String,
-});
+})
 
-const TalentBookModel = mongoose.model('TalentBook', schema, 'talentBooks');
+const TalentBookModel = mongoose.model('TalentBook', schema, 'talentBooks')
 
 module.exports = { TalentBookModel }

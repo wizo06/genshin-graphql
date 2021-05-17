@@ -1,8 +1,12 @@
 {
   "name": "honey-impact-graphql",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "wizo06",
   "license": "ISC",
+  "workspaces": [
+    "config",
+    "src"
+  ],
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"

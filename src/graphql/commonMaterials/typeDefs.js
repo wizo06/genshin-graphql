@@ -12,6 +12,6 @@ const commonMaterialsTypeDefs = gql`
     "The url for the commonMaterial image on the Honey Impact website"
     imgUrl: String
   }
-`;
+`
 
 module.exports = { commonMaterialsTypeDefs }

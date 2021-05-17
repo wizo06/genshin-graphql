@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
   name: String,
@@ -12,8 +12,8 @@ const schema = new mongoose.Schema({
   stoneId: String,
   talentBookId: String,
   talentWeeklyId: String,
-});
+})
 
-const CharacterModel = mongoose.model('Character', schema, 'characters');
+const CharacterModel = mongoose.model('Character', schema, 'characters')
 
-module.exports = { CharacterModel };
+module.exports = { CharacterModel }

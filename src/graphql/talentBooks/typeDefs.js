@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server')
 
 const talentBooksTypeDefs = gql`
   extend type Query {
@@ -12,6 +12,6 @@ const talentBooksTypeDefs = gql`
     "The url for the talentBook image on the Honey Impact website"
     imgUrl: String
   }
-`;
+`
 
 module.exports = { talentBooksTypeDefs }

@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server')
 
 const localMaterialsTypeDefs = gql`
   extend type Query {
@@ -12,6 +12,6 @@ const localMaterialsTypeDefs = gql`
     "The url for the localMaterial image on the Honey Impact website"
     imgUrl: String
   }
-`;
+`
 
 module.exports = { localMaterialsTypeDefs }

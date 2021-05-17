@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server')
 
 const charactersTypeDefs = gql`
   extend type Query {
@@ -30,6 +30,6 @@ const charactersTypeDefs = gql`
     "Talent weekly that the character uses"
     talentWeekly: TalentWeekly
   }
-`;
+`
 
 module.exports = { charactersTypeDefs }
