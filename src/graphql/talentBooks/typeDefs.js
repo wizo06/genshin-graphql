@@ -12,6 +12,8 @@ const talentBooksTypeDefs = gql`
     name: String
     "The url for the talentBook image on the Honey Impact website"
     imgUrl: String
+    "The characters that use this talent book"
+    characters: [Character]
   }
 `
 

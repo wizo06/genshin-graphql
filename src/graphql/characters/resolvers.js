@@ -25,7 +25,7 @@ const charactersResolvers = {
     async stone(parent) {
       return await StoneModel.findOne({ _id: parent.stone })
     },
-    async talentBook(parent, args) {
+    async talentBook(parent) {
       return await TalentBookModel.findOne({ _id: parent.talentBook })
     },
     async talentWeekly(parent) {
