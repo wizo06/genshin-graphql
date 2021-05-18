@@ -2,8 +2,9 @@ const { gql } = require('apollo-server')
 
 const localMaterialsTypeDefs = gql`
   extend type Query {
-    localMaterialAll: [LocalMaterial]
-    localMaterialByName(name: String!): LocalMaterial
+    localMaterials(
+      name: String
+    ): [LocalMaterial]
   }
 
   type LocalMaterial {

@@ -2,8 +2,9 @@ const { gql } = require('apollo-server');
 
 const commonMaterialsTypeDefs = gql`
   extend type Query {
-    commonMaterialAll: [CommonMaterial]
-    commonMaterialByName(name: String!): CommonMaterial
+    commonMaterials(
+      name: String
+    ): [CommonMaterial]
   }
 
   type CommonMaterial {

@@ -2,8 +2,9 @@ const { gql } = require('apollo-server')
 
 const jewelsTypeDefs = gql`
   extend type Query {
-    jewelAll: [Jewel]
-    jewelByName(name: String!): Jewel
+    jewels(
+      name: String
+    ): [Jewel]
   }
 
   type Jewel {

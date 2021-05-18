@@ -2,12 +2,9 @@ const { TalentBookModel } = require('src/models/talentBooks/model.js')
 
 const talentBooksResolvers = {
   Query: {
-    talentBookAll: async () => {
-      return await TalentBookModel.find({})
+    talentBook: async (_, args) => {
+      return await TalentBookModel.find(args)
     },
-    talentBookByName: async (_, args) => {
-      return await TalentBookModel.findOne({ name: args.name })
-    }
   },
 }
 

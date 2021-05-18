@@ -2,8 +2,12 @@ const { gql } = require('apollo-server')
 
 const charactersTypeDefs = gql`
   extend type Query {
-    characterAll: [Character]
-    characterByName(name: String!): Character
+    characters(
+      name: String
+      rarity: Int
+      element: Element
+      weaponType: WeaponType
+    ): [Character]
   }
 
   type Character {
@@ -14,9 +18,9 @@ const charactersTypeDefs = gql`
     "Rarity of the character"
     rarity: Int
     "Element of the character"
-    element: String
+    element: Element
     "Weapon type that the character uses"
-    weaponType: String
+    weaponType: WeaponType
     "Common material that the character uses"
     commonMaterial: CommonMaterial
     "Jewel that the character uses"

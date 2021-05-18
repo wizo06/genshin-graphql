@@ -2,12 +2,9 @@ const { StoneModel } = require('src/models/stones/model.js')
 
 const stonesResolvers = {
   Query: {
-    stoneAll: async () => {
-      return await StoneModel.find({})
+    stones: async (_, args) => {
+      return await StoneModel.find(args)
     },
-    stoneByName: async (_, args) => {
-      return await StoneModel.findOne({ name: args.name })
-    }
   },
 }
 

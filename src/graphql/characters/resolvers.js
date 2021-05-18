@@ -8,31 +8,28 @@ const { TalentWeeklyModel } = require('src/models/talentWeeklies/model.js')
 
 const charactersResolvers = {
   Query: {
-    characterAll: async () => {      
-      return await CharacterModel.find({})
+    characters: async (_, args) => {
+      return await CharacterModel.find(args)
     },
-    characterByName: async (_, args) => {
-      return await CharacterModel.findOne({ name: args.name })
-    }
   },
   Character: {
     async commonMaterial(parent) {
-      return await CommonMaterialModel.findOne({ _id: parent.commonMaterialId })
+      return await CommonMaterialModel.findOne({ _id: parent.commonMaterial })
     },
     async jewel(parent) {
-      return await JewelModel.findOne({ _id: parent.jewelId })
+      return await JewelModel.findOne({ _id: parent.jewel })
     },
     async localMaterial(parent) {
-      return await LocalMaterialModel.findOne({ _id: parent.localMaterialId })
+      return await LocalMaterialModel.findOne({ _id: parent.localMaterial })
     },
     async stone(parent) {
-      return await StoneModel.findOne({ _id: parent.stoneId })
+      return await StoneModel.findOne({ _id: parent.stone })
     },
-    async talentBook(parent) {
-      return await TalentBookModel.findOne({ _id: parent.talentBookId })
+    async talentBook(parent, args) {
+      return await TalentBookModel.findOne({ _id: parent.talentBook })
     },
     async talentWeekly(parent) {
-      return await TalentWeeklyModel.findOne({ _id: parent.talentWeeklyId })
+      return await TalentWeeklyModel.findOne({ _id: parent.talentWeekly })
     },
   }
 }

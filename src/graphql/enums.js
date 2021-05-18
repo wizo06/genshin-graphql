@@ -8,6 +8,16 @@ const enums = gql`
     BOW
     CATALYST
   }
+
+  enum Element {
+    PYRO
+    HYDRO
+    ELECTRO
+    CRYO
+    ANEMO
+    GEO
+    DENDRO
+  }
 `
 
 module.exports = { enums }

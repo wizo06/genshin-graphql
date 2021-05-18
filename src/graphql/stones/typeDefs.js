@@ -2,8 +2,9 @@ const { gql } = require('apollo-server')
 
 const stonesTypeDefs = gql`
   extend type Query {
-    stoneAll: [Stone]
-    stoneByName(name: String!): Stone
+    stones(
+      name: String
+    ): [Stone]
   }
 
   type Stone {

@@ -2,8 +2,9 @@ const { gql } = require('apollo-server')
 
 const talentWeekliesTypeDefs = gql`
   extend type Query {
-    talentWeeklyAll: [TalentWeekly]
-    talentWeeklyByName(name: String!): TalentWeekly
+    talentWeeklies(
+      name: String
+    ): [TalentWeekly]
   }
 
   type TalentWeekly {

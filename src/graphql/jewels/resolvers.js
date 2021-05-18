@@ -2,12 +2,9 @@ const { JewelModel } = require('src/models/jewels/model.js')
 
 const jewelsResolvers = {
   Query: {
-    jewelAll: async () => {
-      return await JewelModel.find({})
+    jewels: async (_, args) => {
+      return await JewelModel.find(args)
     },
-    jewelByName: async (_, args) => {
-      return await JewelModel.findOne({ name: args.name })
-    }
   },
 }
 

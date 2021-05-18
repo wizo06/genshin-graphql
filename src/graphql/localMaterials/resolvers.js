@@ -2,12 +2,9 @@ const { LocalMaterialModel } = require('src/models/localMaterials/model.js')
 
 const localMaterialsResolvers = {
   Query: {
-    localMaterialAll: async () => {
-      return await LocalMaterialModel.find({})
+    localMaterials: async (_, args) => {
+      return await LocalMaterialModel.find(args)
     },
-    localMaterialByName: async (_, args) => {
-      return await LocalMaterialModel.findOne({ name: args.name })
-    }
   },
 }
 
