@@ -3,7 +3,7 @@ const { TalentBookModel } = require('src/models/talentBooks/model.js')
 
 const talentBooksResolvers = {
   Query: {
-    talentBook: async (_, args) => {
+    talentBooks: async (_, args) => {
       return await TalentBookModel.find(args)
     },
   },

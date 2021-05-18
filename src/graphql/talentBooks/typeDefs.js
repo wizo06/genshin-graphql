@@ -2,7 +2,7 @@ const { gql } = require('apollo-server')
 
 const talentBooksTypeDefs = gql`
   extend type Query {
-    talentBook(
+    talentBooks(
       name: String
     ): [TalentBook]
   }
