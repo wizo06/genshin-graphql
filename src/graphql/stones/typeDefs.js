@@ -12,6 +12,8 @@ const stonesTypeDefs = gql`
     name: String
     "The url for the stone image on the Honey Impact website"
     imgUrl: String
+    "The characters that use this stone"
+    characters: [Character]
   }
 `
 

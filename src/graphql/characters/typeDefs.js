@@ -11,6 +11,7 @@ const charactersTypeDefs = gql`
   }
 
   type Character {
+    _id: String
     "The name of the character"
     name: String
     "The url for the character image on the Honey Impact website"

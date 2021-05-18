@@ -12,6 +12,8 @@ const localMaterialsTypeDefs = gql`
     name: String
     "The url for the localMaterial image on the Honey Impact website"
     imgUrl: String
+    "The characters that use this local material"
+    characters: [Character]
   }
 `
 

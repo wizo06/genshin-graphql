@@ -1,3 +1,4 @@
+const { CharacterModel } = require('src/models/characters/model.js')
 const { CommonMaterialModel } = require('src/models/commonMaterials/model.js')
 
 const commonMaterialsResolvers = {
@@ -6,6 +7,11 @@ const commonMaterialsResolvers = {
       return await CommonMaterialModel.find(args)
     },
   },
+  CommonMaterial: { 
+    async characters(parent) {
+      return await CharacterModel.find({ _id: parent.characters })
+    }
+  }
 }
 
 module.exports = { commonMaterialsResolvers }

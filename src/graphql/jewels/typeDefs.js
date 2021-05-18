@@ -12,6 +12,8 @@ const jewelsTypeDefs = gql`
     name: String
     "The url for the jewel image on the Honey Impact website"
     imgUrl: String
+    "The characters that use this jewel"
+    characters: [Character]
   }
 `
 

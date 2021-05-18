@@ -12,6 +12,8 @@ const talentWeekliesTypeDefs = gql`
     name: String
     "The url for the talentWeekly image on the Honey Impact website"
     imgUrl: String
+    "The characters that use this talent weekly"
+    characters: [Character]
   }
 `
 

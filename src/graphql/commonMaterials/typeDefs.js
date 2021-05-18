@@ -12,6 +12,8 @@ const commonMaterialsTypeDefs = gql`
     name: String
     "The url for the commonMaterial image on the Honey Impact website"
     imgUrl: String
+    "The characters that use this common material"
+    characters: [Character]
   }
 `
 
