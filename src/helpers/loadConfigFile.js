@@ -11,5 +11,5 @@ catch (e) {
     logger.error(`Make a copy of ${colors.yellow}template.toml${colors.reset} and name it ${colors.yellow}user_config.toml`)
     process.exit()
   } 
-  console.log(e)
+  logger.error(e)
 }

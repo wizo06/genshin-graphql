@@ -20,13 +20,13 @@ else {
 mongoose.connect(URI,{ useNewUrlParser: true, useUnifiedTopology: true })
 .catch(err => {
   logger.error('Error on initial connection')
-  console.log(err)
+  logger.log(err)
   process.exit()
 })
 
 mongoose.connection.on('error', err => {
   logger.error('Error after initial connection was established')
-  console.log(err)
+  logger.log(err)
 })
 
 mongoose.connection.on('disconnected', () => {
