@@ -1,14 +1,13 @@
 const logger = require('logger')
-const { colors } = require('logger')
-require('toml-require').install()
+const { format } = require('logger')
+
 try {
-  const CONFIG = require('../../config/user_config.toml')
-  module.exports = { CONFIG }
+  module.exports = require('toml-loader')('../../config/user_config.toml')
 }
 catch (e) {
-  if (e.code === 'MODULE_NOT_FOUND') {
-    logger.error(`${colors.yellow}user_config.toml${colors.reset} not found`)
-    logger.error(`Make a copy of ${colors.yellow}template.toml${colors.reset} and name it ${colors.yellow}user_config.toml`)
+  if (e.code === 'ENOENT') {
+    logger.error(`${format.underscore}user_config.toml${format.reset} not found`)
+    logger.error(`Make a copy of ${format.underscore}template.toml${format.reset} and name it ${format.underscore}user_config.toml`)
     process.exit()
   } 
   logger.error(e)

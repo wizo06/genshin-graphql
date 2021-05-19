@@ -1,4 +1,4 @@
-const { CONFIG } = require('src/helpers/loadConfigFile.js')
+const { apollo } = require('src/helpers/loadConfigFile.js')
 const { ApolloServer, gql } = require('apollo-server')
 const { connectToMongoDB } = require('src/mongoose.js')
 const logger = require('logger')
@@ -54,7 +54,7 @@ const server = new ApolloServer({
 
 ;(async () => {
   await connectToMongoDB()
-  server.listen({ port: CONFIG.apollo.port }).then(({ url }) => {
+  server.listen({ port: apollo.port }).then(({ url }) => {
     logger.success(`🚀 ApolloServer ready at ${url}`)
   })
 })()

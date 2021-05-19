@@ -1,4 +1,4 @@
-const { CONFIG: { mongo } } = require('src/helpers/loadConfigFile.js')
+const { mongo } = require('src/helpers/loadConfigFile.js')
 const mongoose = require('mongoose')
 const logger = require('logger')
 
