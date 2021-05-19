@@ -3,6 +3,7 @@ const { gql } = require('apollo-server')
 const jewelsTypeDefs = gql`
   extend type Query {
     jewels(
+      "Filter by the jewel name"
       name: String
     ): [Jewel]
   }

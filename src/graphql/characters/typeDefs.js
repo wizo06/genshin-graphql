@@ -3,15 +3,18 @@ const { gql } = require('apollo-server')
 const charactersTypeDefs = gql`
   extend type Query {
     characters(
+      "Filter by the character name"
       name: String
+      "Filter by the character rarity"
       rarity: Int
+      "Filter by the character element"
       element: Element
+      "Filter by the character weapon type"
       weaponType: WeaponType
     ): [Character]
   }
 
   type Character {
-    _id: String
     "The name of the character"
     name: String
     "The url for the character image on the Honey Impact website"

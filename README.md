@@ -14,15 +14,17 @@ Data was scraped from the website to populate the database when I first started 
 
 ## Incompleteness
 
-Another limitation is that the database does not contain all entities, nor does each entity have all information regarding it.
+Another limitation is that the database does not contain all entities, nor does each entity have all information about it.
 
 For example, the entity "Domains" is not in the database.
 
-Another example is that, the entity "character" is in the database, but not everything about the a character is in the database, such as birthday, voice actor, skills, constellations, story, etc.
+Another example is that, the entity "Characters" is in the database, but not everything about a character is in the database, such as birthday, voice actor, skills, constellations, story, etc.
 
 Those "missing" entities and/or information might be added in the future, if I consider them to be important and/or relevant.
 
 What are my criteria for "important" and "relevant"? My expectation of this API is to be used to build *practical* services or tools. For example, [this Google Spreadsheet](https://genshin-sched.web.app/) that I made. Therefore, information such as character birthday or character story are not relevant.
+
+Contributors are welcomed to add those "missing" entities and/or information once I setup something for it.
 
 # Specs
 

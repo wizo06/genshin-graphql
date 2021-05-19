@@ -3,6 +3,7 @@ const { gql } = require('apollo-server')
 const stonesTypeDefs = gql`
   extend type Query {
     stones(
+      "Filter by the stone name"
       name: String
     ): [Stone]
   }

@@ -3,6 +3,7 @@ const { gql } = require('apollo-server')
 const localMaterialsTypeDefs = gql`
   extend type Query {
     localMaterials(
+      "Filter by the local material name"
       name: String
     ): [LocalMaterial]
   }

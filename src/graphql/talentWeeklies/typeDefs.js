@@ -3,6 +3,7 @@ const { gql } = require('apollo-server')
 const talentWeekliesTypeDefs = gql`
   extend type Query {
     talentWeeklies(
+      "Filter by the talent weekly name"
       name: String
     ): [TalentWeekly]
   }

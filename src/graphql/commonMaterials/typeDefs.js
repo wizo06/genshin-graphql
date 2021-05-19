@@ -3,6 +3,7 @@ const { gql } = require('apollo-server');
 const commonMaterialsTypeDefs = gql`
   extend type Query {
     commonMaterials(
+      "Filter by the common material name"
       name: String
     ): [CommonMaterial]
   }

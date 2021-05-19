@@ -24,7 +24,9 @@ const { talentWeekliesResolvers } = require('src/graphql/talentWeeklies/resolver
 const { enums } = require('src/graphql/enums.js')
 
 // Define base typeDef and basee resolver so they can be extended
-const typeDefs = gql`type Query { _: String }`
+const typeDefs = gql`
+  type Query { _: String }
+`
 
 // Create an Apollo server with the imported typedefs and resolvers
 const server = new ApolloServer({
