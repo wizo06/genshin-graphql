@@ -4,7 +4,6 @@
   "author": "wizo06",
   "license": "ISC",
   "workspaces": [
-    "config",
     "src"
   ],
   "scripts": {
@@ -13,11 +12,11 @@
     "update": "git pull origin && npm i"
   },
   "dependencies": {
+    "@iarna/toml": "^2.2.5",
     "apollo-server": "^2.24.0",
     "graphql": "^15.5.0",
     "logger": "github:wizo06/logger",
-    "mongoose": "^5.12.7",
-    "toml-loader": "github:wizo06/toml-loader"
+    "mongoose": "^5.12.7"
   },
   "devDependencies": {
     "cheerio": "*",

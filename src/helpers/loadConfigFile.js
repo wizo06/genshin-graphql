@@ -2,7 +2,7 @@ const logger = require('logger')
 const { format } = require('logger')
 
 try {
-  module.exports = require('toml-loader')('../../config/user_config.toml')
+  module.exports = require('@iarna/toml').parse(require('fs').readFileSync('config/config.toml'))
 }
 catch (e) {
   if (e.code === 'ENOENT') {
