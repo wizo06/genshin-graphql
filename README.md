@@ -23,8 +23,6 @@ Requirements:
 To get a local server running:
 
 ```
-git clone https://github.com/wizo06/honey-impact-graphql.git
-cd honey-impact-graphql
 cp config/config-template.toml config/config.toml
 npm i
 npm run dev
