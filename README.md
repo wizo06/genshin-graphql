@@ -1,6 +1,6 @@
 # About
 
-Fan-made GraphQL API for [https://genshin.honeyhunterworld.com/](https://genshin.honeyhunterworld.com/).
+Fan-made GraphQL API for Genshin Impact.
 
 # Limitations
 
